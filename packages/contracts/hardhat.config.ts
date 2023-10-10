@@ -40,6 +40,9 @@ const getNetworkConfig = (chainId?: number) => {
       case 1101:
         url = "https://zkevm-rpc.com";
         break;
+      case 5611:
+        url = "https://opbnb-testnet-rpc.bnbchain.org/";
+        break;
       case 8453:
         url = "https://developer-access-mainnet.base.org";
         break;
@@ -159,6 +162,7 @@ const config: HardhatUserConfig = {
     goerli: getNetworkConfig(5),
     zoraTestnet: getNetworkConfig(999),
     mantleTestnet: getNetworkConfig(5001),
+    opBNBTestnet: getNetworkConfig(5611),
     lineaTestnet: getNetworkConfig(59140),
     mumbai: getNetworkConfig(80001),
     baseGoerli: getNetworkConfig(84531),
@@ -175,6 +179,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://explorer.testnet.mantle.xyz/api",
           browserURL: "https://explorer.testnet.mantle.xyz",
+        },
+      },
+      {
+        network: "opBNBTestnet",
+        chainId: 5611,
+        urls: {
+          apiURL: "https://api-opbnb-testnet.bscscan.com/api",
+          browserURL: "https://testnet.opbnbscan.com/",
         },
       },
       {

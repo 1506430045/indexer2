@@ -432,6 +432,16 @@ export class Sources {
 
         return _.replace(sourceEntity.metadata.url, "${tokenId}", tokenId);
       }
+    } else if (config.chainId == 5611) {
+      if (sourceEntity.metadata.tokenUrlOpBNBTestnet && contract && tokenId) {
+        sourceEntity.metadata.url = _.replace(
+            sourceEntity.metadata.tokenUrlOpBNBTestnet,
+            "${contract}",
+            contract
+        );
+
+        return _.replace(sourceEntity.metadata.url, "${tokenId}", tokenId);
+      }
     } else if (config.chainId == 42161) {
       if (sourceEntity.metadata.tokenUrlArbitrum && contract && tokenId) {
         sourceEntity.metadata.url = _.replace(
