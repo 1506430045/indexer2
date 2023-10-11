@@ -30,6 +30,9 @@ export const getNetworkName = () => {
     case 324:
       return "zksync";
 
+    case 5611:
+      return "opbnb-testnet";
+
     case 42161:
       return "arbitrum";
 
@@ -854,6 +857,37 @@ export const getNetworkSettings = (): NetworkSettings => {
                   '{"coingeckoCurrencyId": "bitdao", "image": "https://assets.coingecko.com/coins/images/17627/large/rI_YptK8.png"}'
                 ) ON CONFLICT DO NOTHING
               `
+            ),
+          ]);
+        },
+      };
+    }
+    case 5611: {
+      return {
+        ...defaultNetworkSettings,
+        enableWebSocket: false,
+        realtimeSyncMaxBlockLag: 32,
+        realtimeSyncFrequencySeconds: 5,
+        lastBlockLatency: 5,
+        headBlockDelay: 10,
+        onStartup: async () => {
+          await Promise.all([
+            idb.none(
+                `
+                  INSERT INTO currencies (
+                    contract,
+                    name,
+                    symbol,
+                    decimals,
+                    metadata
+                  ) VALUES (
+                             '\\x0000000000000000000000000000000000000000',
+                             'Ether',
+                             'ETH',
+                             18,
+                             '{"coingeckoCurrencyId": "ethereum", "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png"}'
+                           ) ON CONFLICT DO NOTHING
+                `
             ),
           ]);
         },

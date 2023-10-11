@@ -140,6 +140,7 @@ export enum Network {
   EthereumGoerli = 5,
   ZoraTestnet = 999,
   MantleTestnet = 5001,
+  OpBNBTestnet = 5611,
   LineaTestnet = 59140,
   Mumbai = 80001,
   BaseGoerli = 84531,
