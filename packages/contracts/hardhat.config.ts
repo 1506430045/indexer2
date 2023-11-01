@@ -34,6 +34,9 @@ const getNetworkConfig = (chainId?: number) => {
       case 137:
         url = "https://polygon.llamarpc.com";
         break;
+      case 169:
+        url = "https://pacific-rpc.manta.network/http";
+        break;
       case 324:
         url = "https://mainnet.era.zksync.io";
         break;
@@ -153,6 +156,7 @@ const config: HardhatUserConfig = {
     optimism: getNetworkConfig(10),
     bsc: getNetworkConfig(56),
     polygon: getNetworkConfig(137),
+    manta: getNetworkConfig(169),
     zkSync: getNetworkConfig(324),
     polygonZkevm: getNetworkConfig(1101),
     base: getNetworkConfig(8453),
@@ -177,6 +181,14 @@ const config: HardhatUserConfig = {
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
     customChains: [
+      {
+        network: "manta",
+        chainId: 169,
+        urls: {
+          apiURL: "https://manta-pacific.calderaexplorer.xyz/api",
+          browserURL: "https://pacific-explorer.manta.network",
+        },
+      },
       {
         network: "mantleTestnet",
         chainId: 5001,
