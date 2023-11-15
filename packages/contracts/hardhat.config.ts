@@ -92,6 +92,9 @@ const getNetworkConfig = (chainId?: number) => {
       case 13472:
         url = "https://rpc.testnet.immutable.com/";
         break;
+      case 12008:
+        url = "https://pre-alpha-zkrollup-rpc.opside.network/public";
+        break;
       default:
         throw new Error("Unsupported chain id");
     }
@@ -173,6 +176,7 @@ const config: HardhatUserConfig = {
     sepolia: getNetworkConfig(11155111),
     ancient8Testnet: getNetworkConfig(2863311531),
     immutableZkevmTestnet: getNetworkConfig(13472),
+    opsideZkevm: getNetworkConfig(12008),
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
@@ -215,6 +219,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://testnet.explorer.zora.energy/api",
           browserURL: "https://testnet.explorer.zora.energy/",
+        },
+      },
+      {
+        network: "opsideZkevm",
+        chainId: 12008,
+        urls: {
+          apiURL: "https://public.zkevm.opside.info/api",
+          browserURL: "https://public.zkevm.opside.info/",
         },
       },
     ],

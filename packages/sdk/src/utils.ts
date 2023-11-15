@@ -149,6 +149,7 @@ export enum Network {
   Zksync = 324,
   Ancient8Testnet = 2863311531,
   ImmutableZkevmTestnet = 13472,
+  OpsideZkevm = 12008,
 }
 
 export type ChainIdToAddress = { [chainId: number]: string };

@@ -26,6 +26,7 @@ export const Router: ChainIdToAddress = {
   [Network.Zksync]: "0x952a21a21079d09d31b0dbf8a1702ea6004919ab",
   [Network.Ancient8Testnet]: "0x1aed60a97192157fda7fb26267a439d523d09c5e",
   [Network.Scroll]: "0x1aed60a97192157fda7fb26267a439d523d09c5e",
+  [Network.OpsideZkevm]: "0x5cc0c7d237c1e0279bde1e851e6cafb8cfe15be3",
 };
 
 // Approval proxy
@@ -182,6 +183,7 @@ export const AlienswapModule: ChainIdToAddress = {
   [Network.Arbitrum]: "0x670ec3e840816c81fb8567c9a5368ab55f3d796a",
   [Network.Optimism]: "0x670ec3e840816c81fb8567c9a5368ab55f3d796a",
   [Network.Scroll]: "0xf769c98b6e384e98e36d6fc3ec7247dd1e887f57",
+  [Network.OpsideZkevm]: "0x3953c18bb9bbb8b43f9e4adf6e86b19bd020f4f7",
 };
 
 export const SudoswapModule: ChainIdToAddress = {
